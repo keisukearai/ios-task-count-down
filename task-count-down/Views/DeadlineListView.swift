@@ -73,22 +73,24 @@ struct DeadlineListView: View {
     }
 
     private var categoryFilter: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                filterChip(label: lm.l("filter_all"), icon: "tray.full.fill",
-                           color: .primary, isSelected: selectedCategory == nil) {
-                    selectedCategory = nil
-                }
-                ForEach(DeadlineCategory.allCases, id: \.rawValue) { cat in
-                    filterChip(label: lm.l(cat.localizedKey), icon: cat.icon,
-                               color: cat.color, isSelected: selectedCategory == cat) {
-                        selectedCategory = selectedCategory == cat ? nil : cat
-                    }
-                }
+        LazyVGrid(
+            columns: [GridItem(.adaptive(minimum: 88), spacing: 8)],
+            spacing: 8
+        ) {
+            filterChip(label: lm.l("filter_all"), icon: "tray.full.fill",
+                       color: .primary, isSelected: selectedCategory == nil) {
+                selectedCategory = nil
             }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
+            filterChip(label: lm.l("category_work"),     icon: DeadlineCategory.work.icon,     color: DeadlineCategory.work.color,     isSelected: selectedCategory == .work)     { selectedCategory = selectedCategory == .work     ? nil : .work     }
+            filterChip(label: lm.l("category_personal"), icon: DeadlineCategory.personal.icon, color: DeadlineCategory.personal.color, isSelected: selectedCategory == .personal) { selectedCategory = selectedCategory == .personal ? nil : .personal }
+            filterChip(label: lm.l("category_study"),    icon: DeadlineCategory.study.icon,    color: DeadlineCategory.study.color,    isSelected: selectedCategory == .study)    { selectedCategory = selectedCategory == .study    ? nil : .study    }
+            filterChip(label: lm.l("category_travel"),   icon: DeadlineCategory.travel.icon,   color: DeadlineCategory.travel.color,   isSelected: selectedCategory == .travel)   { selectedCategory = selectedCategory == .travel   ? nil : .travel   }
+            filterChip(label: lm.l("category_finance"),  icon: DeadlineCategory.finance.icon,  color: DeadlineCategory.finance.color,  isSelected: selectedCategory == .finance)  { selectedCategory = selectedCategory == .finance  ? nil : .finance  }
+            filterChip(label: lm.l("category_health"),   icon: DeadlineCategory.health.icon,   color: DeadlineCategory.health.color,   isSelected: selectedCategory == .health)   { selectedCategory = selectedCategory == .health   ? nil : .health   }
+            filterChip(label: lm.l("category_other"),    icon: DeadlineCategory.other.icon,    color: DeadlineCategory.other.color,    isSelected: selectedCategory == .other)    { selectedCategory = selectedCategory == .other    ? nil : .other    }
         }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 
     private func filterChip(label: String, icon: String, color: Color,
