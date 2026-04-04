@@ -62,9 +62,7 @@ struct PaywallView: View {
 
     private var featuresSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            FeatureRow(icon: "infinity",                 text: lm.l("feature_unlimited"))
-            FeatureRow(icon: "bell.badge",              text: lm.l("feature_notifications"))
-            FeatureRow(icon: "rectangle.on.rectangle",  text: lm.l("feature_widget"))
+            FeatureRow(icon: "infinity", text: lm.l("feature_unlimited"))
         }
         .padding(20)
         .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 16))
