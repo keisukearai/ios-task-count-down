@@ -1,0 +1,77 @@
+{
+  "identifier" : "com.keisukearai.task-count-down.storekit",
+  "nonConsumableProducts" : [
+    {
+      "displayPrice" : "600",
+      "familySharable" : false,
+      "internalID" : "com.keisukearai.task-count-down.premium",
+      "localizations" : [
+        {
+          "description" : "Unlock unlimited deadlines.",
+          "displayName" : "Premium",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "無制限の期限を登録できます。",
+          "displayName" : "プレミアム",
+          "locale" : "ja_JP"
+        },
+        {
+          "description" : "解锁无限截止日期。",
+          "displayName" : "高级版",
+          "locale" : "zh_Hans_CN"
+        },
+        {
+          "description" : "Mở khóa thời hạn không giới hạn.",
+          "displayName" : "Cao cấp",
+          "locale" : "vi_VN"
+        },
+        {
+          "description" : "ปลดล็อกกำหนดเวลาไม่จำกัด",
+          "displayName" : "พรีเมียม",
+          "locale" : "th_TH"
+        }
+      ],
+      "productID" : "com.keisukearai.task-count-down.premium",
+      "referenceName" : "Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "JPN",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
