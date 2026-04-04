@@ -1,0 +1,328 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "list_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Deadlines" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限一覧" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Thời hạn" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "กำหนดเวลา" } }
+      }
+    },
+    "free_usage_banner" : {
+      "comment" : "Free usage banner showing used/limit counts. Args: used count, total limit",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%d / %d deadlines (Free)" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "無料版: %d / %d件" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "免费版: %d / %d 个" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Miễn phí: %d / %d" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ฟรี: %d / %d" } }
+      }
+    },
+    "upgrade_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Upgrade" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "アップグレード" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "升级" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Nâng cấp" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "อัปเกรด" } }
+      }
+    },
+    "countdown_future_singular" : {
+      "comment" : "Countdown text for exactly 1 day remaining",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%d day left" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "あと%d日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "还有%d天" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Còn %d ngày" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "อีก %d วัน" } }
+      }
+    },
+    "countdown_future_plural" : {
+      "comment" : "Countdown text for 2+ days remaining",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%d days left" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "あと%d日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "还有%d天" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Còn %d ngày" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "อีก %d วัน" } }
+      }
+    },
+    "countdown_today" : {
+      "comment" : "Countdown text when deadline is today",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "今日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今天" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Hôm nay" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "วันนี้" } }
+      }
+    },
+    "countdown_overdue_singular" : {
+      "comment" : "Countdown text for exactly 1 day overdue",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%d day overdue" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限切れ%d日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "已过期%d天" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Quá hạn %d ngày" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "เกิน %d วัน" } }
+      }
+    },
+    "countdown_overdue_plural" : {
+      "comment" : "Countdown text for 2+ days overdue",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%d days overdue" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限切れ%d日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "已过期%d天" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Quá hạn %d ngày" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "เกิน %d วัน" } }
+      }
+    },
+    "section_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Title" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "タイトル" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "标题" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Tiêu đề" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ชื่อเรื่อง" } }
+      }
+    },
+    "section_date" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "日付" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ngày" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "วันที่" } }
+      }
+    },
+    "title_placeholder" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g. Exam, Trip, Tax filing…" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "例: 試験、旅行、確定申告…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "例如：考试、旅行、报税…" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ví dụ: Thi, Du lịch, Nộp thuế…" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "เช่น สอบ, ท่องเที่ยว, ยื่นภาษี…" } }
+      }
+    },
+    "date_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Target Date" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ngày mục tiêu" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "วันเป้าหมาย" } }
+      }
+    },
+    "add_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Deadline" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限を追加" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "添加截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Thêm thời hạn" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "เพิ่มกำหนดเวลา" } }
+      }
+    },
+    "edit_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Deadline" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限を編集" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "编辑截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Chỉnh sửa thời hạn" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "แก้ไขกำหนดเวลา" } }
+      }
+    },
+    "save_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "保存" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保存" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lưu" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "บันทึก" } }
+      }
+    },
+    "cancel_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "キャンセル" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "取消" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Hủy" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ยกเลิก" } }
+      }
+    },
+    "delete_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "削除" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "删除" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xóa" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ลบ" } }
+      }
+    },
+    "delete_confirm_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete this deadline?" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "削除しますか？" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "删除此截止日期？" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xóa thời hạn này?" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ลบกำหนดเวลานี้?" } }
+      }
+    },
+    "delete_confirm_message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This action cannot be undone." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "この操作は元に戻せません。" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "此操作无法撤销。" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Hành động này không thể hoàn tác." } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "การดำเนินการนี้ไม่สามารถยกเลิกได้" } }
+      }
+    },
+    "empty_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No deadlines yet" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限はまだありません" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "还没有截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Chưa có thời hạn nào" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ยังไม่มีกำหนดเวลา" } }
+      }
+    },
+    "empty_subtitle" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap the button below to add your first deadline." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "下のボタンから最初の期限を追加しましょう。" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "点击下方按钮添加您的第一个截止日期。" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Nhấn nút bên dưới để thêm thời hạn đầu tiên." } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "กดปุ่มด้านล่างเพื่อเพิ่มกำหนดเวลาแรก" } }
+      }
+    },
+    "add_first_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Deadline" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限を追加" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "添加截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Thêm thời hạn" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "เพิ่มกำหนดเวลา" } }
+      }
+    },
+    "paywall_nav_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Upgrade" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "アップグレード" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "升级" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Nâng cấp" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "อัปเกรด" } }
+      }
+    },
+    "paywall_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Go Premium" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "プレミアムへ" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "升级高级版" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lên Cao Cấp" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "อัปเกรดเป็นพรีเมียม" } }
+      }
+    },
+    "paywall_subtitle" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock unlimited deadlines and future features." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "無制限の期限登録と今後の機能を解放しよう。" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁无限截止日期和未来所有功能。" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Mở khóa thời hạn không giới hạn và các tính năng sắp ra mắt." } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ปลดล็อกกำหนดเวลาไม่จำกัดและฟีเจอร์ในอนาคต" } }
+      }
+    },
+    "feature_unlimited" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlimited deadlines" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "無制限の期限登録" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "无限截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Thời hạn không giới hạn" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "กำหนดเวลาไม่จำกัด" } }
+      }
+    },
+    "feature_notifications" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Notifications (coming soon)" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "通知機能（近日公開）" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "通知功能（即将推出）" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Thông báo (sắp ra mắt)" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "การแจ้งเตือน (เร็วๆ นี้)" } }
+      }
+    },
+    "feature_widget" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Home Screen Widget (coming soon)" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ホーム画面ウィジェット（近日公開）" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主屏幕小组件（即将推出）" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Widget màn hình chính (sắp ra mắt)" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "วิดเจ็ตหน้าจอหลัก (เร็วๆ นี้)" } }
+      }
+    },
+    "purchase_button" : {
+      "comment" : "Purchase button with price. Arg: formatted price string (e.g. $4.99)",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Buy for %@" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "%@で購入" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "以%@购买" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Mua với %@" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ซื้อด้วย %@" } }
+      }
+    },
+    "purchase_button_loading" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Loading…" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "読み込み中…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "加载中…" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Đang tải…" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "กำลังโหลด…" } }
+      }
+    },
+    "restore_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Restore Purchases" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "購入を復元" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "恢复购买" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Khôi phục mua hàng" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "กู้คืนการซื้อ" } }
+      }
+    },
+    "error_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Error" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "エラー" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "错误" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lỗi" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ข้อผิดพลาด" } }
+      }
+    },
+    "ok_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "好的" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ตกลง" } }
+      }
+    },
+    "error_product_not_found" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Product not found. Please try again later." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "商品が見つかりません。後でもう一度お試しください。" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "找不到商品，请稍后再试。" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Không tìm thấy sản phẩm. Vui lòng thử lại sau." } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ไม่พบสินค้า กรุณาลองใหม่ภายหลัง" } }
+      }
+    },
+    "error_verification_failed" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Purchase verification failed. Please contact support." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "購入の確認に失敗しました。サポートにお問い合わせください。" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "购买验证失败，请联系支持。" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xác minh mua hàng thất bại. Vui lòng liên hệ hỗ trợ." } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "การยืนยันการซื้อล้มเหลว กรุณาติดต่อฝ่ายสนับสนุน" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}
