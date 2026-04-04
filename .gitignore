@@ -19,3 +19,6 @@ Pods/
 
 # macOS
 .DS_Store
+
+# Personal notes (not for repo)
+TODO.md
