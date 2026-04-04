@@ -5,7 +5,13 @@ import Observation
 class DeadlineViewModel {
     private(set) var items: [DeadlineItem] = []
     private let storage = StorageService()
-    let freeLimit = 3
+    let freeLimit: Int = {
+        #if DEBUG
+        return 100  // no practical limit during development
+        #else
+        return 3
+        #endif
+    }()
 
     init() {
         items = storage.load().sorted { $0.daysRemaining < $1.daysRemaining }
