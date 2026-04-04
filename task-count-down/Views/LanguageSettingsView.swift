@@ -6,8 +6,8 @@ struct LanguageSettingsView: View {
 
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
+            ScrollView {
+                VStack(spacing: 0) {
                     languageRow(.system)
                     languageRow(.english)
                     languageRow(.japanese)
@@ -15,7 +15,10 @@ struct LanguageSettingsView: View {
                     languageRow(.vietnamese)
                     languageRow(.thai)
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding()
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle(lm.l("language_title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -27,21 +30,28 @@ struct LanguageSettingsView: View {
     }
 
     private func languageRow(_ language: Language) -> some View {
-        Button {
-            lm.setLanguage(language)
-        } label: {
-            HStack(spacing: 14) {
-                Text(language.flagEmoji)
-                    .font(.title2)
-                Text(language.nativeName)
-                    .foregroundStyle(.primary)
-                Spacer()
-                if lm.currentLanguage == language {
-                    Image(systemName: "checkmark")
-                        .foregroundStyle(Color.accentColor)
-                        .fontWeight(.semibold)
+        VStack(spacing: 0) {
+            Button {
+                lm.setLanguage(language)
+            } label: {
+                HStack(spacing: 14) {
+                    Text(language.flagEmoji)
+                        .font(.title2)
+                    Text(language.nativeName)
+                        .foregroundStyle(.primary)
+                    Spacer()
+                    if lm.currentLanguage == language {
+                        Image(systemName: "checkmark")
+                            .foregroundStyle(Color.accentColor)
+                            .fontWeight(.semibold)
+                    }
                 }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 14)
+                .background(Color(.systemBackground))
             }
+            Divider()
+                .padding(.leading, 16)
         }
     }
 }
