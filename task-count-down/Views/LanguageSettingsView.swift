@@ -7,7 +7,7 @@ struct LanguageSettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(Language.allCases) { language in
+                ForEach(Language.allCases, id: \.rawValue) { language in
                     Button {
                         lm.setLanguage(language)
                     } label: {
