@@ -7,6 +7,9 @@ enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
     case travel
     case finance
     case health
+    case hobby
+    case family
+    case event
     case other
 
     var id: String { rawValue }
@@ -21,6 +24,9 @@ enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
         case .travel:   return "airplane"
         case .finance:  return "yensign.circle.fill"
         case .health:   return "heart.fill"
+        case .hobby:    return "gamecontroller.fill"
+        case .family:   return "house.fill"
+        case .event:    return "party.popper.fill"
         case .other:    return "ellipsis.circle.fill"
         }
     }
@@ -33,6 +39,9 @@ enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
         case .travel:   return .teal
         case .finance:  return .green
         case .health:   return .red
+        case .hobby:    return .pink
+        case .family:   return .brown
+        case .event:    return .indigo
         case .other:    return .gray
         }
     }

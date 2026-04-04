@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
+
+    },
     "add_first_button" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -102,6 +105,278 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
+          }
+        }
+      }
+    },
+    "category_finance" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finance"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お金"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเงิน"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tài chính"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "财务"
+          }
+        }
+      }
+    },
+    "category_health" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สุขภาพ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sức khỏe"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康"
+          }
+        }
+      }
+    },
+    "category_other" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อื่นๆ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Khác"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
+          }
+        }
+      }
+    },
+    "category_hobby" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hobby" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "趣味" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "兴趣" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Sở thích" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "งานอดิเรก" } }
+      }
+    },
+    "category_family" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Family" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "家族" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "家庭" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Gia đình" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ครอบครัว" } }
+      }
+    },
+    "category_event" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Event" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "イベント" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "活动" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Sự kiện" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "กิจกรรม" } }
+      }
+    },
+    "category_personal" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personal"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライベート"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ส่วนตัว"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cá nhân"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "个人"
+          }
+        }
+      }
+    },
+    "category_study" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Study"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "勉強"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเรียน"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Học tập"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "学习"
+          }
+        }
+      }
+    },
+    "category_travel" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเดินทาง"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du lịch"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行"
+          }
+        }
+      }
+    },
+    "category_work" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Work"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仕事"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "งาน"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Công việc"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "工作"
           }
         }
       }
@@ -774,6 +1049,76 @@
         }
       }
     },
+    "filter_all" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทั้งหมด"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tất cả"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部"
+          }
+        }
+      }
+    },
+    "filter_empty" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No deadlines in this category"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このカテゴリの期限はありません"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มีกำหนดเวลาในหมวดหมู่นี้"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không có thời hạn trong danh mục này"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此分类暂无截止日期"
+          }
+        }
+      }
+    },
     "free_usage_banner" : {
       "comment" : "Free usage banner showing used/limit counts. Args: used count, total limit",
       "extractionState" : "stale",
@@ -1161,6 +1506,41 @@
         }
       }
     },
+    "section_category" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Category"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カテゴリ"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หมวดหมู่"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danh mục"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分类"
+          }
+        }
+      }
+    },
     "section_date" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1299,96 +1679,6 @@
             "value" : "升级"
           }
         }
-      }
-    },
-    "section_category" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Category" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カテゴリ" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "分类" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Danh mục" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "หมวดหมู่" } }
-      }
-    },
-    "filter_all" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "All" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "すべて" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "全部" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Tất cả" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "ทั้งหมด" } }
-      }
-    },
-    "filter_empty" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No deadlines in this category" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "このカテゴリの期限はありません" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "此分类暂无截止日期" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Không có thời hạn trong danh mục này" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "ไม่มีกำหนดเวลาในหมวดหมู่นี้" } }
-      }
-    },
-    "category_work" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Work" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "仕事" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "工作" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Công việc" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "งาน" } }
-      }
-    },
-    "category_personal" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Personal" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "プライベート" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "个人" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Cá nhân" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "ส่วนตัว" } }
-      }
-    },
-    "category_study" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Study" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "勉強" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "学习" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Học tập" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "การเรียน" } }
-      }
-    },
-    "category_travel" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Travel" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "旅行" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "旅行" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Du lịch" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "การเดินทาง" } }
-      }
-    },
-    "category_finance" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Finance" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "お金" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "财务" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Tài chính" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "การเงิน" } }
-      }
-    },
-    "category_health" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Health" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "健康" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "健康" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Sức khỏe" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "สุขภาพ" } }
-      }
-    },
-    "category_other" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Other" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "その他" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "其他" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Khác" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "อื่นๆ" } }
       }
     }
   },
