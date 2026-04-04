@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AddEditDeadlineView: View {
     @Environment(DeadlineViewModel.self) private var viewModel
+    @Environment(LanguageManager.self) private var lm
     @Environment(\.dismiss) private var dismiss
 
     let item: DeadlineItem?
@@ -15,13 +16,13 @@ struct AddEditDeadlineView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(String(localized: "section_title")) {
-                    TextField(String(localized: "title_placeholder"), text: $title)
+                Section(lm.l("section_title")) {
+                    TextField(lm.l("title_placeholder"), text: $title)
                 }
 
-                Section(String(localized: "section_date")) {
+                Section(lm.l("section_date")) {
                     DatePicker(
-                        String(localized: "date_label"),
+                        lm.l("date_label"),
                         selection: $targetDate,
                         displayedComponents: .date
                     )
@@ -35,40 +36,36 @@ struct AddEditDeadlineView: View {
                         } label: {
                             HStack {
                                 Spacer()
-                                Text(String(localized: "delete_button"))
+                                Text(lm.l("delete_button"))
                                 Spacer()
                             }
                         }
                     }
                 }
             }
-            .navigationTitle(isEditing ? String(localized: "edit_title") : String(localized: "add_title"))
+            .navigationTitle(isEditing ? lm.l("edit_title") : lm.l("add_title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(String(localized: "cancel_button")) {
-                        dismiss()
-                    }
+                    Button(lm.l("cancel_button")) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button(String(localized: "save_button")) {
-                        save()
-                    }
-                    .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
+                    Button(lm.l("save_button")) { save() }
+                        .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .confirmationDialog(
-                String(localized: "delete_confirm_title"),
+                lm.l("delete_confirm_title"),
                 isPresented: $showingDeleteConfirm,
                 titleVisibility: .visible
             ) {
-                Button(String(localized: "delete_button"), role: .destructive) {
+                Button(lm.l("delete_button"), role: .destructive) {
                     if let item { viewModel.delete(item) }
                     dismiss()
                 }
-                Button(String(localized: "cancel_button"), role: .cancel) {}
+                Button(lm.l("cancel_button"), role: .cancel) {}
             } message: {
-                Text(String(localized: "delete_confirm_message"))
+                Text(lm.l("delete_confirm_message"))
             }
         }
         .onAppear {

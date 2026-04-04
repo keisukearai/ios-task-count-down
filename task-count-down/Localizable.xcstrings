@@ -322,6 +322,24 @@
         "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xác minh mua hàng thất bại. Vui lòng liên hệ hỗ trợ." } },
         "th" : { "stringUnit" : { "state" : "translated", "value" : "การยืนยันการซื้อล้มเหลว กรุณาติดต่อฝ่ายสนับสนุน" } }
       }
+    },
+    "language_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Language" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "言語" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "语言" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ngôn ngữ" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ภาษา" } }
+      }
+    },
+    "done_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "完了" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "完成" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xong" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "เสร็จสิ้น" } }
+      }
     }
   },
   "version" : "1.0"

@@ -3,8 +3,10 @@ import SwiftUI
 struct DeadlineListView: View {
     @Environment(DeadlineViewModel.self) private var viewModel
     @Environment(PurchaseService.self) private var purchaseService
+    @Environment(LanguageManager.self) private var lm
     @State private var showingAdd = false
     @State private var showingPaywall = false
+    @State private var showingLanguage = false
     @State private var editingItem: DeadlineItem?
 
     var body: some View {
@@ -18,20 +20,28 @@ struct DeadlineListView: View {
                     listContent
                 }
             }
-            .navigationTitle(String(localized: "list_title"))
+            .navigationTitle(lm.l("list_title"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if purchaseService.isPremium {
-                        Image(systemName: "crown.fill")
-                            .foregroundStyle(.yellow)
+                    Button {
+                        showingLanguage = true
+                    } label: {
+                        Image(systemName: "globe")
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        handleAddTap()
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title3)
+                    HStack(spacing: 4) {
+                        if purchaseService.isPremium {
+                            Image(systemName: "crown.fill")
+                                .foregroundStyle(.yellow)
+                                .font(.caption)
+                        }
+                        Button {
+                            handleAddTap()
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title3)
+                        }
                     }
                 }
             }
@@ -44,6 +54,9 @@ struct DeadlineListView: View {
         }
         .sheet(isPresented: $showingPaywall) {
             PaywallView()
+        }
+        .sheet(isPresented: $showingLanguage) {
+            LanguageSettingsView()
         }
     }
 
@@ -65,16 +78,14 @@ struct DeadlineListView: View {
     }
 
     private var freeUsageBanner: some View {
-        let used = viewModel.items.count
-        let limit = viewModel.freeLimit
-        return HStack {
+        HStack {
             Image(systemName: "info.circle")
                 .foregroundStyle(.secondary)
-            Text(String(format: String(localized: "free_usage_banner"), used, limit))
+            Text(lm.lf("free_usage_banner", viewModel.items.count, viewModel.freeLimit))
                 .font(.caption)
                 .foregroundStyle(.secondary)
             Spacer()
-            Button(String(localized: "upgrade_button")) {
+            Button(lm.l("upgrade_button")) {
                 showingPaywall = true
             }
             .font(.caption)

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DeadlineRowView: View {
     let item: DeadlineItem
+    @Environment(LanguageManager.self) private var lm
 
     var body: some View {
         HStack(spacing: 12) {
@@ -41,38 +42,24 @@ struct DeadlineRowView: View {
     private var urgencyColor: Color {
         switch item.urgency {
         case .overdue: return .red
-        case .today: return .blue
-        case .soon: return .orange
-        case .future: return .green
+        case .today:   return .blue
+        case .soon:    return .orange
+        case .future:  return .green
         }
     }
 
     private var countdownText: String {
         let days = item.daysRemaining
         if days == 1 {
-            return String(format: String(localized: "countdown_future_singular"), days)
+            return lm.lf("countdown_future_singular", days)
         } else if days > 1 {
-            return String(format: String(localized: "countdown_future_plural"), days)
+            return lm.lf("countdown_future_plural", days)
         } else if days == 0 {
-            return String(localized: "countdown_today")
+            return lm.l("countdown_today")
         } else if abs(days) == 1 {
-            return String(format: String(localized: "countdown_overdue_singular"), abs(days))
+            return lm.lf("countdown_overdue_singular", abs(days))
         } else {
-            return String(format: String(localized: "countdown_overdue_plural"), abs(days))
+            return lm.lf("countdown_overdue_plural", abs(days))
         }
     }
-}
-
-#Preview {
-    let future = DeadlineItem(title: "Exam", targetDate: Date().addingTimeInterval(86400 * 5))
-    let today = DeadlineItem(title: "Meeting", targetDate: Date())
-    let overdue = DeadlineItem(title: "Invoice", targetDate: Date().addingTimeInterval(-86400 * 3))
-
-    return VStack {
-        DeadlineRowView(item: future)
-        DeadlineRowView(item: today)
-        DeadlineRowView(item: overdue)
-    }
-    .padding(.vertical)
-    .background(Color(.systemGroupedBackground))
 }

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct EmptyStateView: View {
+    @Environment(LanguageManager.self) private var lm
     let onAdd: () -> Void
 
     var body: some View {
@@ -13,11 +14,11 @@ struct EmptyStateView: View {
                 .symbolEffect(.pulse)
 
             VStack(spacing: 8) {
-                Text(String(localized: "empty_title"))
+                Text(lm.l("empty_title"))
                     .font(.title2)
                     .fontWeight(.semibold)
 
-                Text(String(localized: "empty_subtitle"))
+                Text(lm.l("empty_subtitle"))
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -27,7 +28,7 @@ struct EmptyStateView: View {
             Button {
                 onAdd()
             } label: {
-                Label(String(localized: "add_first_button"), systemImage: "plus")
+                Label(lm.l("add_first_button"), systemImage: "plus")
                     .font(.headline)
                     .foregroundStyle(.white)
                     .padding(.horizontal, 28)
@@ -38,8 +39,4 @@ struct EmptyStateView: View {
             Spacer()
         }
     }
-}
-
-#Preview {
-    EmptyStateView(onAdd: {})
 }

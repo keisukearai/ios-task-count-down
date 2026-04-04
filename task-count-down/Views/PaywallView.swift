@@ -3,6 +3,7 @@ import StoreKit
 
 struct PaywallView: View {
     @Environment(PurchaseService.self) private var purchaseService
+    @Environment(LanguageManager.self) private var lm
     @Environment(\.dismiss) private var dismiss
     @State private var product: Product?
     @State private var isPurchasing = false
@@ -20,21 +21,19 @@ struct PaywallView: View {
                 }
                 .padding(.vertical, 24)
             }
-            .navigationTitle(String(localized: "paywall_nav_title"))
+            .navigationTitle(lm.l("paywall_nav_title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(String(localized: "cancel_button")) {
-                        dismiss()
-                    }
+                    Button(lm.l("cancel_button")) { dismiss() }
                 }
             }
         }
         .task {
             product = await purchaseService.loadProduct()
         }
-        .alert(String(localized: "error_title"), isPresented: $showingError) {
-            Button(String(localized: "ok_button")) {}
+        .alert(lm.l("error_title"), isPresented: $showingError) {
+            Button(lm.l("ok_button")) {}
         } message: {
             Text(errorMessage)
         }
@@ -49,11 +48,11 @@ struct PaywallView: View {
                 .font(.system(size: 60))
                 .foregroundStyle(.yellow)
 
-            Text(String(localized: "paywall_title"))
+            Text(lm.l("paywall_title"))
                 .font(.largeTitle)
                 .fontWeight(.bold)
 
-            Text(String(localized: "paywall_subtitle"))
+            Text(lm.l("paywall_subtitle"))
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -63,9 +62,9 @@ struct PaywallView: View {
 
     private var featuresSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            FeatureRow(icon: "infinity", text: String(localized: "feature_unlimited"))
-            FeatureRow(icon: "bell.badge", text: String(localized: "feature_notifications"))
-            FeatureRow(icon: "rectangle.on.rectangle", text: String(localized: "feature_widget"))
+            FeatureRow(icon: "infinity",                 text: lm.l("feature_unlimited"))
+            FeatureRow(icon: "bell.badge",              text: lm.l("feature_notifications"))
+            FeatureRow(icon: "rectangle.on.rectangle",  text: lm.l("feature_widget"))
         }
         .padding(20)
         .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 16))
@@ -96,7 +95,7 @@ struct PaywallView: View {
             .disabled(isPurchasing)
             .padding(.horizontal)
 
-            Button(String(localized: "restore_button")) {
+            Button(lm.l("restore_button")) {
                 Task { await performRestore() }
             }
             .font(.footnote)
@@ -106,9 +105,9 @@ struct PaywallView: View {
 
     private var purchaseButtonLabel: String {
         if let product {
-            return String(format: String(localized: "purchase_button"), product.displayPrice)
+            return lm.lf("purchase_button", product.displayPrice)
         }
-        return String(localized: "purchase_button_loading")
+        return lm.l("purchase_button_loading")
     }
 
     private func performPurchase() async {
