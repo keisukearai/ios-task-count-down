@@ -15,6 +15,17 @@ struct DeadlineListView: View {
         return viewModel.items.filter { $0.category == cat }
     }
 
+    // Sort categories by item count descending; zero-count go to the end
+    private var sortedCategories: [DeadlineCategory] {
+        DeadlineCategory.allCases.sorted {
+            itemCount(for: $0) > itemCount(for: $1)
+        }
+    }
+
+    private func itemCount(for category: DeadlineCategory) -> Int {
+        viewModel.items.filter { $0.category == category }.count
+    }
+
     var body: some View {
         NavigationStack {
             Group {
@@ -73,39 +84,54 @@ struct DeadlineListView: View {
     }
 
     private var categoryFilter: some View {
-        LazyVGrid(
-            columns: [GridItem(.adaptive(minimum: 88), spacing: 8)],
-            spacing: 8
-        ) {
-            filterChip(label: lm.l("filter_all"), icon: "tray.full.fill",
-                       color: .primary, isSelected: selectedCategory == nil) {
-                selectedCategory = nil
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                // "All" は常に先頭
+                filterChip(
+                    label: lm.l("filter_all"),
+                    icon: "tray.full.fill",
+                    color: .primary,
+                    count: viewModel.items.count,
+                    isSelected: selectedCategory == nil
+                ) { selectedCategory = nil }
+
+                // タスク数の多い順に並ぶ
+                filterChip(label: lm.l("category_work"),     icon: DeadlineCategory.work.icon,     color: DeadlineCategory.work.color,     count: itemCount(for: .work),     isSelected: selectedCategory == .work)     { selectedCategory = selectedCategory == .work     ? nil : .work     }
+                filterChip(label: lm.l("category_personal"), icon: DeadlineCategory.personal.icon, color: DeadlineCategory.personal.color, count: itemCount(for: .personal), isSelected: selectedCategory == .personal) { selectedCategory = selectedCategory == .personal ? nil : .personal }
+                filterChip(label: lm.l("category_study"),    icon: DeadlineCategory.study.icon,    color: DeadlineCategory.study.color,    count: itemCount(for: .study),    isSelected: selectedCategory == .study)    { selectedCategory = selectedCategory == .study    ? nil : .study    }
+                filterChip(label: lm.l("category_travel"),   icon: DeadlineCategory.travel.icon,   color: DeadlineCategory.travel.color,   count: itemCount(for: .travel),   isSelected: selectedCategory == .travel)   { selectedCategory = selectedCategory == .travel   ? nil : .travel   }
+                filterChip(label: lm.l("category_finance"),  icon: DeadlineCategory.finance.icon,  color: DeadlineCategory.finance.color,  count: itemCount(for: .finance),  isSelected: selectedCategory == .finance)  { selectedCategory = selectedCategory == .finance  ? nil : .finance  }
+                filterChip(label: lm.l("category_health"),   icon: DeadlineCategory.health.icon,   color: DeadlineCategory.health.color,   count: itemCount(for: .health),   isSelected: selectedCategory == .health)   { selectedCategory = selectedCategory == .health   ? nil : .health   }
+                filterChip(label: lm.l("category_other"),    icon: DeadlineCategory.other.icon,    color: DeadlineCategory.other.color,    count: itemCount(for: .other),    isSelected: selectedCategory == .other)    { selectedCategory = selectedCategory == .other    ? nil : .other    }
             }
-            filterChip(label: lm.l("category_work"),     icon: DeadlineCategory.work.icon,     color: DeadlineCategory.work.color,     isSelected: selectedCategory == .work)     { selectedCategory = selectedCategory == .work     ? nil : .work     }
-            filterChip(label: lm.l("category_personal"), icon: DeadlineCategory.personal.icon, color: DeadlineCategory.personal.color, isSelected: selectedCategory == .personal) { selectedCategory = selectedCategory == .personal ? nil : .personal }
-            filterChip(label: lm.l("category_study"),    icon: DeadlineCategory.study.icon,    color: DeadlineCategory.study.color,    isSelected: selectedCategory == .study)    { selectedCategory = selectedCategory == .study    ? nil : .study    }
-            filterChip(label: lm.l("category_travel"),   icon: DeadlineCategory.travel.icon,   color: DeadlineCategory.travel.color,   isSelected: selectedCategory == .travel)   { selectedCategory = selectedCategory == .travel   ? nil : .travel   }
-            filterChip(label: lm.l("category_finance"),  icon: DeadlineCategory.finance.icon,  color: DeadlineCategory.finance.color,  isSelected: selectedCategory == .finance)  { selectedCategory = selectedCategory == .finance  ? nil : .finance  }
-            filterChip(label: lm.l("category_health"),   icon: DeadlineCategory.health.icon,   color: DeadlineCategory.health.color,   isSelected: selectedCategory == .health)   { selectedCategory = selectedCategory == .health   ? nil : .health   }
-            filterChip(label: lm.l("category_other"),    icon: DeadlineCategory.other.icon,    color: DeadlineCategory.other.color,    isSelected: selectedCategory == .other)    { selectedCategory = selectedCategory == .other    ? nil : .other    }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
         }
-        .padding(.horizontal)
-        .padding(.vertical, 8)
     }
 
     private func filterChip(label: String, icon: String, color: Color,
-                             isSelected: Bool, action: @escaping () -> Void) -> some View {
+                             count: Int, isSelected: Bool,
+                             action: @escaping () -> Void) -> some View {
         Button(action: action) {
             HStack(spacing: 4) {
                 Image(systemName: icon).font(.caption2)
                 Text(label).font(.caption).fontWeight(.medium)
+                if count > 0 {
+                    Text("\(count)")
+                        .font(.caption2)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 1)
+                        .background(isSelected ? .white.opacity(0.35) : color.opacity(0.2),
+                                    in: Capsule())
+                }
             }
             .foregroundStyle(isSelected ? .white : color)
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
-            .background(isSelected ? color : color.opacity(0.12),
-                        in: Capsule())
+            .background(isSelected ? color : color.opacity(0.12), in: Capsule())
         }
+        .opacity(count == 0 ? 0.4 : 1.0)
     }
 
     private var emptyFilterView: some View {
