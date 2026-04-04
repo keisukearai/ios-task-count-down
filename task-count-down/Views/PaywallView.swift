@@ -140,7 +140,7 @@ private struct FeatureRow: View {
         HStack(spacing: 14) {
             Image(systemName: icon)
                 .font(.title3)
-                .foregroundStyle(.accentColor)
+                .foregroundStyle(Color.accentColor)
                 .frame(width: 28)
             Text(text)
                 .font(.body)
