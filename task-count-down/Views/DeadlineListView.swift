@@ -15,13 +15,6 @@ struct DeadlineListView: View {
         return viewModel.items.filter { $0.category == cat }
     }
 
-    // Sort categories by item count descending; zero-count go to the end
-    private var sortedCategories: [DeadlineCategory] {
-        DeadlineCategory.allCases.sorted {
-            itemCount(for: $0) > itemCount(for: $1)
-        }
-    }
-
     private func itemCount(for category: DeadlineCategory) -> Int {
         viewModel.items.filter { $0.category == category }.count
     }
@@ -43,11 +36,32 @@ struct DeadlineListView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 4) {
+                    HStack(spacing: 12) {
                         if purchaseService.isPremium {
                             Image(systemName: "crown.fill")
                                 .foregroundStyle(.yellow)
                                 .font(.caption)
+                        }
+                        // ソートメニュー
+                        Menu {
+                            Button {
+                                viewModel.applySortOrder(.deadline)
+                            } label: {
+                                Label(lm.l("sort_by_deadline"), systemImage: "calendar")
+                                if viewModel.sortOrder == .deadline {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                            Button {
+                                viewModel.applySortOrder(.createdAt)
+                            } label: {
+                                Label(lm.l("sort_by_created"), systemImage: "plus.circle")
+                                if viewModel.sortOrder == .createdAt {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "arrow.up.arrow.down")
                         }
                         Button { handleAddTap() } label: {
                             Image(systemName: "plus.circle.fill")
@@ -57,7 +71,12 @@ struct DeadlineListView: View {
                 }
             }
         }
-        .sheet(isPresented: $showingAdd) { AddEditDeadlineView(item: nil) }
+        // 追加後: フィルターを「全て」にリセット → 追加したアイテムが必ず見える
+        .sheet(isPresented: $showingAdd, onDismiss: {
+            selectedCategory = nil
+        }) {
+            AddEditDeadlineView(item: nil)
+        }
         .sheet(item: $editingItem) { item in AddEditDeadlineView(item: item) }
         .sheet(isPresented: $showingPaywall) { PaywallView() }
         .sheet(isPresented: $showingLanguage) { LanguageSettingsView() }
@@ -86,16 +105,10 @@ struct DeadlineListView: View {
     private var categoryFilter: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                // "All" は常に先頭
-                filterChip(
-                    label: lm.l("filter_all"),
-                    icon: "tray.full.fill",
-                    color: .primary,
-                    count: viewModel.items.count,
-                    isSelected: selectedCategory == nil
-                ) { selectedCategory = nil }
+                filterChip(label: lm.l("filter_all"), icon: "tray.full.fill",
+                           color: .primary, count: viewModel.items.count,
+                           isSelected: selectedCategory == nil) { selectedCategory = nil }
 
-                // タスク数の多い順に並ぶ
                 filterChip(label: lm.l("category_work"),     icon: DeadlineCategory.work.icon,     color: DeadlineCategory.work.color,     count: itemCount(for: .work),     isSelected: selectedCategory == .work)     { selectedCategory = selectedCategory == .work     ? nil : .work     }
                 filterChip(label: lm.l("category_personal"), icon: DeadlineCategory.personal.icon, color: DeadlineCategory.personal.color, count: itemCount(for: .personal), isSelected: selectedCategory == .personal) { selectedCategory = selectedCategory == .personal ? nil : .personal }
                 filterChip(label: lm.l("category_study"),    icon: DeadlineCategory.study.icon,    color: DeadlineCategory.study.color,    count: itemCount(for: .study),    isSelected: selectedCategory == .study)    { selectedCategory = selectedCategory == .study    ? nil : .study    }
@@ -121,17 +134,13 @@ struct DeadlineListView: View {
                 Text(label).font(.caption).fontWeight(.medium)
                 if count > 0 {
                     Text("\(count)")
-                        .font(.caption2)
-                        .fontWeight(.bold)
-                        .padding(.horizontal, 5)
-                        .padding(.vertical, 1)
-                        .background(isSelected ? .white.opacity(0.35) : color.opacity(0.2),
-                                    in: Capsule())
+                        .font(.caption2).fontWeight(.bold)
+                        .padding(.horizontal, 5).padding(.vertical, 1)
+                        .background(isSelected ? .white.opacity(0.35) : color.opacity(0.2), in: Capsule())
                 }
             }
             .foregroundStyle(isSelected ? .white : color)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
+            .padding(.horizontal, 10).padding(.vertical, 6)
             .background(isSelected ? color : color.opacity(0.12), in: Capsule())
         }
         .opacity(count == 0 ? 0.4 : 1.0)
@@ -139,11 +148,8 @@ struct DeadlineListView: View {
 
     private var emptyFilterView: some View {
         VStack(spacing: 12) {
-            Image(systemName: "tray")
-                .font(.system(size: 40))
-                .foregroundStyle(.secondary)
-            Text(lm.l("filter_empty"))
-                .foregroundStyle(.secondary)
+            Image(systemName: "tray").font(.system(size: 40)).foregroundStyle(.secondary)
+            Text(lm.l("filter_empty")).foregroundStyle(.secondary)
         }
         .padding(.top, 60)
     }
@@ -157,8 +163,7 @@ struct DeadlineListView: View {
             Button(lm.l("upgrade_button")) { showingPaywall = true }
                 .font(.caption).fontWeight(.semibold)
         }
-        .padding(.horizontal)
-        .padding(.vertical, 8)
+        .padding(.horizontal).padding(.vertical, 8)
         .background(Color(.systemGray6))
     }
 

@@ -109,6 +109,94 @@
         }
       }
     },
+    "category_event" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Event"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イベント"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กิจกรรม"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sự kiện"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "活动"
+          }
+        }
+      }
+    },
+    "sort_by_deadline" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "By Deadline" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限順" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按截止日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Theo hạn chót" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ตามกำหนดเวลา" } }
+      }
+    },
+    "sort_by_created" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "By Date Added" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "追加日順" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按添加日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Theo ngày thêm" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "ตามวันที่เพิ่ม" } }
+      }
+    },
+    "category_family" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Family"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "家族"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ครอบครัว"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gia đình"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "家庭"
+          }
+        }
+      }
+    },
     "category_finance" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -179,6 +267,41 @@
         }
       }
     },
+    "category_hobby" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hobby"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "趣味"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "งานอดิเรก"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sở thích"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "兴趣"
+          }
+        }
+      }
+    },
     "category_other" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -212,33 +335,6 @@
             "value" : "其他"
           }
         }
-      }
-    },
-    "category_hobby" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hobby" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "趣味" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "兴趣" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Sở thích" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "งานอดิเรก" } }
-      }
-    },
-    "category_family" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Family" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "家族" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "家庭" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Gia đình" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "ครอบครัว" } }
-      }
-    },
-    "category_event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Event" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "イベント" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "活动" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Sự kiện" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "กิจกรรม" } }
       }
     },
     "category_personal" : {

@@ -1,20 +1,28 @@
 import Foundation
 import Observation
 
+enum SortOrder: String, CaseIterable {
+    case deadline  // 期限が近い順
+    case createdAt // 追加日が新しい順
+}
+
 @Observable
 class DeadlineViewModel {
     private(set) var items: [DeadlineItem] = []
+    var sortOrder: SortOrder = .deadline
     private let storage = StorageService()
+
     let freeLimit: Int = {
         #if DEBUG
-        return 100  // no practical limit during development
+        return 100
         #else
         return 3
         #endif
     }()
 
     init() {
-        items = storage.load().sorted { $0.daysRemaining < $1.daysRemaining }
+        items = storage.load()
+        sort()
     }
 
     func add(_ item: DeadlineItem) {
@@ -39,7 +47,17 @@ class DeadlineViewModel {
         isPremium || items.count < freeLimit
     }
 
+    func applySortOrder(_ order: SortOrder) {
+        sortOrder = order
+        sort()
+    }
+
     private func sort() {
-        items.sort { $0.daysRemaining < $1.daysRemaining }
+        switch sortOrder {
+        case .deadline:
+            items.sort { $0.daysRemaining < $1.daysRemaining }
+        case .createdAt:
+            items.sort { $0.createdAt > $1.createdAt }
+        }
     }
 }
