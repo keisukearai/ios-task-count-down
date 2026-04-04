@@ -23,14 +23,14 @@ enum Language: String, CaseIterable, Identifiable {
         }
     }
 
-    var flagEmoji: String {
+    var badge: String {
         switch self {
-        case .system:     return "🌐"
-        case .english:    return "🇺🇸"
-        case .japanese:   return "🇯🇵"
-        case .chinese:    return "🇨🇳"
-        case .vietnamese: return "🇻🇳"
-        case .thai:       return "🇹🇭"
+        case .system:     return "AUTO"
+        case .english:    return "EN"
+        case .japanese:   return "JA"
+        case .chinese:    return "ZH"
+        case .vietnamese: return "VI"
+        case .thai:       return "TH"
         }
     }
 

@@ -35,8 +35,13 @@ struct LanguageSettingsView: View {
                 lm.setLanguage(language)
             } label: {
                 HStack(spacing: 14) {
-                    Text(language.flagEmoji)
-                        .font(.title2)
+                    Text(language.badge)
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                        .frame(width: 44, height: 28)
+                        .background(lm.currentLanguage == language ? Color.accentColor : Color.secondary,
+                                    in: RoundedRectangle(cornerRadius: 6))
                     Text(language.nativeName)
                         .foregroundStyle(.primary)
                     Spacer()
