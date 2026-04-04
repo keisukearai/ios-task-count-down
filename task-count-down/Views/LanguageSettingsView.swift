@@ -6,20 +6,22 @@ struct LanguageSettingsView: View {
 
     var body: some View {
         NavigationStack {
-            List(Language.allCases) { language in
-                Button {
-                    lm.setLanguage(language)
-                } label: {
-                    HStack(spacing: 14) {
-                        Text(language.flagEmoji)
-                            .font(.title2)
-                        Text(language.nativeName)
-                            .foregroundStyle(.primary)
-                        Spacer()
-                        if lm.currentLanguage == language {
-                            Image(systemName: "checkmark")
-                                .foregroundStyle(.accentColor)
-                                .fontWeight(.semibold)
+            List {
+                ForEach(Language.allCases) { language in
+                    Button {
+                        lm.setLanguage(language)
+                    } label: {
+                        HStack(spacing: 14) {
+                            Text(language.flagEmoji)
+                                .font(.title2)
+                            Text(language.nativeName)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                            if lm.currentLanguage == language {
+                                Image(systemName: "checkmark")
+                                    .foregroundStyle(.accentColor)
+                                    .fontWeight(.semibold)
+                            }
                         }
                     }
                 }
