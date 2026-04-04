@@ -6,6 +6,7 @@ struct AddEditDeadlineView: View {
     @Environment(\.dismiss) private var dismiss
 
     let item: DeadlineItem?
+    var initialCategory: DeadlineCategory? = nil
 
     @State private var title: String = ""
     @State private var targetDate: Date = Calendar.current.startOfDay(for: Date().addingTimeInterval(86400))
@@ -84,6 +85,8 @@ struct AddEditDeadlineView: View {
                 title      = item.title
                 targetDate = item.targetDate
                 category   = item.category
+            } else {
+                category = initialCategory ?? .other
             }
         }
     }

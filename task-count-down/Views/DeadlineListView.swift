@@ -71,11 +71,9 @@ struct DeadlineListView: View {
                 }
             }
         }
-        // 追加後: フィルターを「全て」にリセット → 追加したアイテムが必ず見える
-        .sheet(isPresented: $showingAdd, onDismiss: {
-            selectedCategory = nil
-        }) {
-            AddEditDeadlineView(item: nil)
+        // フィルター中に追加 → そのカテゴリを引き継ぎ、フィルターはそのまま維持
+        .sheet(isPresented: $showingAdd) {
+            AddEditDeadlineView(item: nil, initialCategory: selectedCategory)
         }
         .sheet(item: $editingItem) { item in AddEditDeadlineView(item: item) }
         .sheet(isPresented: $showingPaywall) { PaywallView() }
