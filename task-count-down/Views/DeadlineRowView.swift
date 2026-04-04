@@ -11,9 +11,14 @@ struct DeadlineRowView: View {
                 .frame(width: 4)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(item.title)
-                    .font(.headline)
-                    .lineLimit(1)
+                HStack(spacing: 6) {
+                    Image(systemName: item.category.icon)
+                        .font(.caption)
+                        .foregroundStyle(item.category.color)
+                    Text(item.title)
+                        .font(.headline)
+                        .lineLimit(1)
+                }
                 Text(item.targetDate, style: .date)
                     .font(.caption)
                     .foregroundStyle(.secondary)

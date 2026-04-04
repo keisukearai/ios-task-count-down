@@ -9,6 +9,7 @@ struct AddEditDeadlineView: View {
 
     @State private var title: String = ""
     @State private var targetDate: Date = Calendar.current.startOfDay(for: Date().addingTimeInterval(86400))
+    @State private var category: DeadlineCategory = .other
     @State private var showingDeleteConfirm = false
 
     private var isEditing: Bool { item != nil }
@@ -18,6 +19,16 @@ struct AddEditDeadlineView: View {
             Form {
                 Section(lm.l("section_title")) {
                     TextField(lm.l("title_placeholder"), text: $title)
+                }
+
+                Section(lm.l("section_category")) {
+                    Picker(lm.l("section_category"), selection: $category) {
+                        ForEach(DeadlineCategory.allCases, id: \.rawValue) { cat in
+                            Label(lm.l(cat.localizedKey), systemImage: cat.icon)
+                                .tag(cat)
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
                 }
 
                 Section(lm.l("section_date")) {
@@ -70,8 +81,9 @@ struct AddEditDeadlineView: View {
         }
         .onAppear {
             if let item {
-                title = item.title
+                title      = item.title
                 targetDate = item.targetDate
+                category   = item.category
             }
         }
     }
@@ -81,11 +93,14 @@ struct AddEditDeadlineView: View {
         guard !trimmed.isEmpty else { return }
 
         if var existing = item {
-            existing.title = trimmed
+            existing.title      = trimmed
             existing.targetDate = targetDate
+            existing.category   = category
             viewModel.update(existing)
         } else {
-            viewModel.add(DeadlineItem(title: trimmed, targetDate: targetDate))
+            var newItem = DeadlineItem(title: trimmed, targetDate: targetDate)
+            newItem.category = category
+            viewModel.add(newItem)
         }
         dismiss()
     }

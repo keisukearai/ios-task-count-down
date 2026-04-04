@@ -5,6 +5,7 @@ struct DeadlineItem: Identifiable, Codable {
     var title: String
     var targetDate: Date
     var createdAt: Date = Date()
+    var category: DeadlineCategory = .other
     var color: String = "blue"
     var note: String = ""
 
