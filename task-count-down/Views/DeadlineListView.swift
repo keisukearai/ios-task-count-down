@@ -130,15 +130,15 @@ struct DeadlineListView: View {
         Button(action: action) {
             HStack(spacing: 4) {
                 Image(systemName: icon)
-                    .font(.caption2)
+                    .font(.caption)
                     .foregroundStyle(isSelected ? .white : color)
                 Text(label)
-                    .font(.caption)
+                    .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundStyle(isSelected ? .white : .primary)
                 if count > 0 {
                     Text("\(count)")
-                        .font(.caption2).fontWeight(.bold)
+                        .font(.caption).fontWeight(.bold)
                         .foregroundStyle(isSelected ? color : .secondary)
                         .padding(.horizontal, 5).padding(.vertical, 1)
                         .background(isSelected ? .white.opacity(0.9) : Color(.systemGray4), in: Capsule())
