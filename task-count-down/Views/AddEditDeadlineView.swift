@@ -12,7 +12,7 @@ struct AddEditDeadlineView: View {
 
     @State private var title: String = ""
     @State private var targetDate: Date = Calendar.current.startOfDay(for: Date().addingTimeInterval(86400))
-    @State private var category: DeadlineCategory = .other
+    @State private var category: DeadlineCategory = .none
     @State private var showingDeleteConfirm = false
 
     private var isEditing: Bool { item != nil }
@@ -27,8 +27,13 @@ struct AddEditDeadlineView: View {
                 Section(lm.l("section_category")) {
                     Picker(lm.l("section_category"), selection: $category) {
                         ForEach(DeadlineCategory.allCases, id: \.rawValue) { cat in
-                            Label(lm.l(cat.localizedKey), systemImage: cat.icon)
-                                .tag(cat)
+                            Label {
+                                Text(lm.l(cat.localizedKey))
+                            } icon: {
+                                Image(systemName: cat.icon)
+                                    .foregroundStyle(cat.color)
+                            }
+                            .tag(cat)
                         }
                     }
                     .pickerStyle(.navigationLink)
