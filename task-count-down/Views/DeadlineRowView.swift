@@ -1,11 +1,5 @@
 import SwiftUI
 
-private let dateFormatter: DateFormatter = {
-    let f = DateFormatter()
-    f.dateFormat = "yyyy/MM/dd"
-    return f
-}()
-
 struct DeadlineRowView: View {
     let item: DeadlineItem
     @Environment(LanguageManager.self) private var lm

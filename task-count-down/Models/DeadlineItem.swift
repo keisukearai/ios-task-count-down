@@ -1,5 +1,11 @@
 import Foundation
 
+let sharedDateFormatter: DateFormatter = {
+    let f = DateFormatter()
+    f.dateFormat = "yyyy/MM/dd"
+    return f
+}()
+
 struct DeadlineItem: Identifiable, Codable {
     var id: UUID = UUID()
     var title: String

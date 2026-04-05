@@ -1,11 +1,5 @@
 import SwiftUI
 
-private let dateFormatter: DateFormatter = {
-    let f = DateFormatter()
-    f.dateFormat = "yyyy/MM/dd"
-    return f
-}()
-
 struct DeadlineDetailView: View {
     let itemID: UUID
     @Environment(DeadlineViewModel.self) private var viewModel
@@ -54,7 +48,7 @@ struct DeadlineDetailView: View {
                         Button(lm.l("cancel_button")) { dismiss() }
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button(lm.l("edit_title")) { showingEdit = true }
+                        Button(lm.l("edit_button")) { showingEdit = true }
                     }
                 }
                 .sheet(isPresented: $showingEdit) {

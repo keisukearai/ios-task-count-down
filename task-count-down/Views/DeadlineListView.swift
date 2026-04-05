@@ -7,7 +7,6 @@ struct DeadlineListView: View {
     @State private var showingAdd = false
     @State private var showingPaywall = false
     @State private var showingLanguage = false
-    @State private var editingItem: DeadlineItem?
     @State private var detailItem: DeadlineItem?
     @State private var selectedCategory: DeadlineCategory? = nil
 
@@ -76,7 +75,6 @@ struct DeadlineListView: View {
         .sheet(isPresented: $showingAdd) {
             AddEditDeadlineView(item: nil, initialCategory: selectedCategory)
         }
-        .sheet(item: $editingItem) { item in AddEditDeadlineView(item: item) }
         .sheet(item: $detailItem) { item in DeadlineDetailView(itemID: item.id) }
         .sheet(isPresented: $showingPaywall) { PaywallView() }
         .sheet(isPresented: $showingLanguage) { LanguageSettingsView() }

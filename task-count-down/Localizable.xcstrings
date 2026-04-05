@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "·" : {
-
-    },
     "%lld" : {
 
     },
@@ -534,6 +531,41 @@
         }
       }
     },
+    "countdown_label" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Countdown"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "残り日数"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "นับถอยหลัง"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đếm ngược"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "倒计时"
+          }
+        }
+      }
+    },
     "countdown_overdue_plural" : {
       "comment" : "Countdown text for 2+ days overdue",
       "extractionState" : "stale",
@@ -642,22 +674,39 @@
         }
       }
     },
-    "countdown_label" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Countdown" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "残り日数" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "倒计时" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Đếm ngược" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "นับถอยหลัง" } }
-      }
-    },
     "created_at_label" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date Added" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "登録日" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "添加日期" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ngày thêm" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "วันที่เพิ่ม" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date Added"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録日"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "วันที่เพิ่ม"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngày thêm"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加日期"
+          }
+        }
       }
     },
     "date_label" : {
@@ -833,6 +882,15 @@
             "value" : "完成"
           }
         }
+      }
+    },
+    "edit_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "編集" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "编辑" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Chỉnh sửa" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "แก้ไข" } }
       }
     },
     "edit_title" : {
