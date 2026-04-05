@@ -1,6 +1,7 @@
 import SwiftUI
 
 enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
+    case none
     case work
     case personal
     case study
@@ -18,6 +19,7 @@ enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
 
     var icon: String {
         switch self {
+        case .none:     return "minus.circle"
         case .work:     return "briefcase.fill"
         case .personal: return "person.fill"
         case .study:    return "book.fill"
@@ -33,6 +35,7 @@ enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
 
     var color: Color {
         switch self {
+        case .none:     return .gray
         case .work:     return .blue
         case .personal: return .purple
         case .study:    return .orange

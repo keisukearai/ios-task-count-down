@@ -107,6 +107,7 @@ struct DeadlineListView: View {
                            color: .primary, count: viewModel.items.count,
                            isSelected: selectedCategory == nil) { selectedCategory = nil }
 
+                filterChip(label: lm.l("category_none"),     icon: DeadlineCategory.none.icon,    color: DeadlineCategory.none.color,    count: itemCount(for: .none),    isSelected: selectedCategory == .none)    { selectedCategory = selectedCategory == .none    ? nil : .none    }
                 filterChip(label: lm.l("category_work"),     icon: DeadlineCategory.work.icon,     color: DeadlineCategory.work.color,     count: itemCount(for: .work),     isSelected: selectedCategory == .work)     { selectedCategory = selectedCategory == .work     ? nil : .work     }
                 filterChip(label: lm.l("category_personal"), icon: DeadlineCategory.personal.icon, color: DeadlineCategory.personal.color, count: itemCount(for: .personal), isSelected: selectedCategory == .personal) { selectedCategory = selectedCategory == .personal ? nil : .personal }
                 filterChip(label: lm.l("category_study"),    icon: DeadlineCategory.study.icon,    color: DeadlineCategory.study.color,    count: itemCount(for: .study),    isSelected: selectedCategory == .study)    { selectedCategory = selectedCategory == .study    ? nil : .study    }

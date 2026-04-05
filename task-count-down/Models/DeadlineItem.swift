@@ -11,7 +11,7 @@ struct DeadlineItem: Identifiable, Codable {
     var title: String
     var targetDate: Date
     var createdAt: Date = Date()
-    var category: DeadlineCategory = .other
+    var category: DeadlineCategory = .none
     var color: String = "blue"
     var note: String = ""
 
