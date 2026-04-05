@@ -103,7 +103,7 @@ struct AddEditDeadlineView: View {
                 targetDate = item.targetDate
                 category   = item.category
             } else {
-                category = initialCategory ?? .other
+                category = initialCategory ?? .none
             }
         }
     }
