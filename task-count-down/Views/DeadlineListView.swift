@@ -29,6 +29,7 @@ struct DeadlineListView: View {
                 }
             }
             .navigationTitle(lm.l("list_title"))
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button { showingLanguage = true } label: {
