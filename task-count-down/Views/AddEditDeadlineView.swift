@@ -7,6 +7,7 @@ struct AddEditDeadlineView: View {
 
     let item: DeadlineItem?
     var initialCategory: DeadlineCategory? = nil
+    var onSave: (() -> Void)? = nil
 
     @State private var title: String = ""
     @State private var targetDate: Date = Calendar.current.startOfDay(for: Date().addingTimeInterval(86400))
@@ -105,6 +106,7 @@ struct AddEditDeadlineView: View {
             newItem.category = category
             viewModel.add(newItem)
         }
+        onSave?()
         dismiss()
     }
 }

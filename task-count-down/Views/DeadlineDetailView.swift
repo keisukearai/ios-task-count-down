@@ -58,7 +58,7 @@ struct DeadlineDetailView: View {
                     }
                 }
                 .sheet(isPresented: $showingEdit) {
-                    AddEditDeadlineView(item: item)
+                    AddEditDeadlineView(item: item, onSave: { dismiss() })
                 }
             }
         }
