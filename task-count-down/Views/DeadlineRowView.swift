@@ -1,5 +1,11 @@
 import SwiftUI
 
+private let dateFormatter: DateFormatter = {
+    let f = DateFormatter()
+    f.dateFormat = "yyyy/MM/dd"
+    return f
+}()
+
 struct DeadlineRowView: View {
     let item: DeadlineItem
     @Environment(LanguageManager.self) private var lm
@@ -23,7 +29,7 @@ struct DeadlineRowView: View {
                 HStack(spacing: 8) {
                     // 期限日
                     Label {
-                        Text(item.targetDate, style: .date)
+                        Text(dateFormatter.string(from: item.targetDate))
                     } icon: {
                         Image(systemName: "calendar")
                     }
@@ -32,7 +38,7 @@ struct DeadlineRowView: View {
 
                     // 追加日
                     Label {
-                        Text(item.createdAt, style: .date)
+                        Text(dateFormatter.string(from: item.createdAt))
                     } icon: {
                         Image(systemName: "plus.circle")
                     }

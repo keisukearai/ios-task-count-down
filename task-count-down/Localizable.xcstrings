@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "·" : {
+
+    },
     "%lld" : {
 
     },
@@ -142,24 +145,6 @@
             "value" : "活动"
           }
         }
-      }
-    },
-    "sort_by_deadline" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "By Deadline" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "期限順" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按截止日期" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Theo hạn chót" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "ตามกำหนดเวลา" } }
-      }
-    },
-    "sort_by_created" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "By Date Added" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "追加日順" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按添加日期" } },
-        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Theo ngày thêm" } },
-        "th" : { "stringUnit" : { "state" : "translated", "value" : "ตามวันที่เพิ่ม" } }
       }
     },
     "category_family" : {
@@ -1703,6 +1688,76 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "标题"
+          }
+        }
+      }
+    },
+    "sort_by_created" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By Date Added"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加日順"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตามวันที่เพิ่ม"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Theo ngày thêm"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按添加日期"
+          }
+        }
+      }
+    },
+    "sort_by_deadline" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By Deadline"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期限順"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตามกำหนดเวลา"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Theo hạn chót"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按截止日期"
           }
         }
       }
