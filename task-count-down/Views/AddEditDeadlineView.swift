@@ -81,6 +81,7 @@ struct AddEditDeadlineView: View {
                 Text(lm.l("delete_confirm_message"))
             }
         }
+        .presentationDetents([.large])
         .onAppear {
             if let item {
                 title      = item.title
