@@ -37,7 +37,7 @@ struct DeadlineListView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 12) {
+                    HStack(spacing: 20) {
                         if purchaseService.isPremium {
                             Image(systemName: "crown.fill")
                                 .foregroundStyle(.yellow)
