@@ -92,8 +92,10 @@ struct DeadlineListView: View {
                     emptyFilterView
                 } else {
                     ForEach(filteredItems) { item in
-                        DeadlineRowView(item: item)
-                            .onTapGesture { detailItem = item }
+                        Button { detailItem = item } label: {
+                            DeadlineRowView(item: item)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
