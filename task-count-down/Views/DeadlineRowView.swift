@@ -23,12 +23,14 @@ struct DeadlineRowView: View {
                 // 期限日
                 Label {
                     Text(sharedDateFormatter.string(from: item.targetDate))
+                        .lineLimit(1)
                 } icon: {
                     Image(systemName: "calendar")
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
             }
+            .layoutPriority(1)
 
             Spacer()
 
@@ -38,6 +40,7 @@ struct DeadlineRowView: View {
                 .foregroundStyle(urgencyColor)
                 .multilineTextAlignment(.trailing)
                 .lineLimit(2)
+                .fixedSize(horizontal: true, vertical: false)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 14)
