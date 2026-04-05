@@ -104,7 +104,7 @@ struct DeadlineListView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 filterChip(label: lm.l("filter_all"), icon: "tray.full.fill",
-                           color: .primary, count: viewModel.items.count,
+                           color: Color(.systemGray), count: viewModel.items.count,
                            isSelected: selectedCategory == nil) { selectedCategory = nil }
 
                 filterChip(label: lm.l("category_none"),     icon: DeadlineCategory.none.icon,    color: DeadlineCategory.none.color,    count: itemCount(for: .none),    isSelected: selectedCategory == .none)    { selectedCategory = selectedCategory == .none    ? nil : .none    }

@@ -35,7 +35,7 @@ enum DeadlineCategory: String, Codable, CaseIterable, Identifiable {
 
     var color: Color {
         switch self {
-        case .none:     return .primary
+        case .none:     return Color(.systemGray)
         case .work:     return .blue
         case .personal: return .purple
         case .study:    return .orange
