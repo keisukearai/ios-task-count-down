@@ -35,12 +35,21 @@ struct AddEditDeadlineView: View {
                 }
 
                 Section(lm.l("section_date")) {
-                    DatePicker(
-                        lm.l("date_label"),
-                        selection: $targetDate,
-                        displayedComponents: .date
-                    )
-                    .datePickerStyle(sizeClass == .regular ? .compact : .graphical)
+                    if sizeClass == .regular {
+                        DatePicker(
+                            lm.l("date_label"),
+                            selection: $targetDate,
+                            displayedComponents: .date
+                        )
+                        .datePickerStyle(.compact)
+                    } else {
+                        DatePicker(
+                            lm.l("date_label"),
+                            selection: $targetDate,
+                            displayedComponents: .date
+                        )
+                        .datePickerStyle(.graphical)
+                    }
                 }
 
                 if isEditing {
