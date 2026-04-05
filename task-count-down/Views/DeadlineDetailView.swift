@@ -26,10 +26,10 @@ struct DeadlineDetailView: View {
 
                     Section {
                         LabeledContent(lm.l("date_label")) {
-                            Text(dateFormatter.string(from: item.targetDate))
+                            Text(sharedDateFormatter.string(from: item.targetDate))
                         }
                         LabeledContent(lm.l("created_at_label")) {
-                            Text(dateFormatter.string(from: item.createdAt))
+                            Text(sharedDateFormatter.string(from: item.createdAt))
                         }
                     }
 

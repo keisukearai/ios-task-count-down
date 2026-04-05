@@ -22,7 +22,7 @@ struct DeadlineRowView: View {
 
                 // 期限日
                 Label {
-                    Text(dateFormatter.string(from: item.targetDate))
+                    Text(sharedDateFormatter.string(from: item.targetDate))
                 } icon: {
                     Image(systemName: "calendar")
                 }
