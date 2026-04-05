@@ -4,6 +4,7 @@ struct AddEditDeadlineView: View {
     @Environment(DeadlineViewModel.self) private var viewModel
     @Environment(LanguageManager.self) private var lm
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var sizeClass
 
     let item: DeadlineItem?
     var initialCategory: DeadlineCategory? = nil
@@ -39,7 +40,7 @@ struct AddEditDeadlineView: View {
                         selection: $targetDate,
                         displayedComponents: .date
                     )
-                    .datePickerStyle(.graphical)
+                    .datePickerStyle(sizeClass == .regular ? .compact : .graphical)
                 }
 
                 if isEditing {
