@@ -77,7 +77,7 @@ struct DeadlineListView: View {
             AddEditDeadlineView(item: nil, initialCategory: selectedCategory)
         }
         .sheet(item: $editingItem) { item in AddEditDeadlineView(item: item) }
-        .sheet(item: $detailItem) { item in DeadlineDetailView(item: item) }
+        .sheet(item: $detailItem) { item in DeadlineDetailView(itemID: item.id) }
         .sheet(isPresented: $showingPaywall) { PaywallView() }
         .sheet(isPresented: $showingLanguage) { LanguageSettingsView() }
     }
