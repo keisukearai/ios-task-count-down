@@ -26,28 +26,14 @@ struct DeadlineRowView: View {
                         .lineLimit(1)
                 }
 
-                HStack(spacing: 8) {
-                    // 期限日
-                    Label {
-                        Text(dateFormatter.string(from: item.targetDate))
-                            .lineLimit(1)
-                    } icon: {
-                        Image(systemName: "calendar")
-                    }
-
-                    Text("·")
-
-                    // 追加日
-                    Label {
-                        Text(dateFormatter.string(from: item.createdAt))
-                            .lineLimit(1)
-                    } icon: {
-                        Image(systemName: "plus.circle")
-                    }
+                // 期限日
+                Label {
+                    Text(dateFormatter.string(from: item.targetDate))
+                } icon: {
+                    Image(systemName: "calendar")
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
-                .lineLimit(1)
             }
 
             Spacer()

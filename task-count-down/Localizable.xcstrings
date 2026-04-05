@@ -642,6 +642,24 @@
         }
       }
     },
+    "countdown_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Countdown" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "残り日数" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "倒计时" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Đếm ngược" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "นับถอยหลัง" } }
+      }
+    },
+    "created_at_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date Added" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "登録日" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "添加日期" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ngày thêm" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "วันที่เพิ่ม" } }
+      }
+    },
     "date_label" : {
       "extractionState" : "stale",
       "localizations" : {
