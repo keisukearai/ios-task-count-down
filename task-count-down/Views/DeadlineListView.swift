@@ -129,18 +129,23 @@ struct DeadlineListView: View {
                              action: @escaping () -> Void) -> some View {
         Button(action: action) {
             HStack(spacing: 4) {
-                Image(systemName: icon).font(.caption2)
-                Text(label).font(.caption).fontWeight(.medium)
+                Image(systemName: icon)
+                    .font(.caption2)
+                    .foregroundStyle(isSelected ? .white : color)
+                Text(label)
+                    .font(.caption)
+                    .fontWeight(.medium)
+                    .foregroundStyle(isSelected ? .white : .primary)
                 if count > 0 {
                     Text("\(count)")
                         .font(.caption2).fontWeight(.bold)
+                        .foregroundStyle(isSelected ? color : .secondary)
                         .padding(.horizontal, 5).padding(.vertical, 1)
-                        .background(isSelected ? .white.opacity(0.35) : color.opacity(0.2), in: Capsule())
+                        .background(isSelected ? .white.opacity(0.9) : Color(.systemGray4), in: Capsule())
                 }
             }
-            .foregroundStyle(isSelected ? .white : color)
             .padding(.horizontal, 10).padding(.vertical, 6)
-            .background(isSelected ? color : color.opacity(0.12), in: Capsule())
+            .background(isSelected ? color : Color(.systemGray5), in: Capsule())
         }
         .opacity(count == 0 ? 0.4 : 1.0)
     }
