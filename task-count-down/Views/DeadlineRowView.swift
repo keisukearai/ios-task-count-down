@@ -30,6 +30,7 @@ struct DeadlineRowView: View {
                     // 期限日
                     Label {
                         Text(dateFormatter.string(from: item.targetDate))
+                            .lineLimit(1)
                     } icon: {
                         Image(systemName: "calendar")
                     }
@@ -39,12 +40,14 @@ struct DeadlineRowView: View {
                     // 追加日
                     Label {
                         Text(dateFormatter.string(from: item.createdAt))
+                            .lineLimit(1)
                     } icon: {
                         Image(systemName: "plus.circle")
                     }
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
+                .lineLimit(1)
             }
 
             Spacer()
