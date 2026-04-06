@@ -4,7 +4,7 @@
     {
       "displayPrice" : "600",
       "familySharable" : false,
-      "internalID" : "com.keisukearai.task-count-down.premium",
+      "internalID" : "com.keisukearai.task_count_down.premium",
       "localizations" : [
         {
           "description" : "Unlock unlimited deadlines.",
@@ -32,7 +32,7 @@
           "locale" : "th_TH"
         }
       ],
-      "productID" : "com.keisukearai.task-count-down.premium",
+      "productID" : "com.keisukearai.task_count_down.premium",
       "referenceName" : "Premium",
       "type" : "NonConsumable"
     }
