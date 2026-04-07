@@ -98,6 +98,10 @@ struct PaywallView: View {
             }
             .font(.footnote)
             .foregroundStyle(.secondary)
+
+            Link(lm.l("privacy_policy"), destination: URL(string: "https://kotoragk.com/taskcountdown/privacy")!)
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
     }
 
