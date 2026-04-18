@@ -267,6 +267,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				INFOPLIST_KEY_CFBundleDisplayName = TaskCountDown;
 				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keisukearai.task-count-down";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,6 +300,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				INFOPLIST_KEY_CFBundleDisplayName = TaskCountDown;
 				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keisukearai.task-count-down";
 				PRODUCT_NAME = "$(TARGET_NAME)";
