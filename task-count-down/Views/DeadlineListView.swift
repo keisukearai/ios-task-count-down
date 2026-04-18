@@ -99,10 +99,10 @@ struct DeadlineListView: View {
                                 }
                             } label: {
                                 Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .font(.body)
+                                    .font(.caption)
                                     .foregroundStyle(item.isCompleted ? .green : Color(.systemGray3))
-                                    .padding(.leading, 12)
-                                    .padding(.trailing, 2)
+                                    .padding(.leading, 10)
+                                    .padding(.trailing, 0)
                             }
                             .buttonStyle(.plain)
 
