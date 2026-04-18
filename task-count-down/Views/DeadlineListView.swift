@@ -92,20 +92,22 @@ struct DeadlineListView: View {
                     emptyFilterView
                 } else {
                     ForEach(filteredItems) { item in
-                        Button { detailItem = item } label: {
-                            DeadlineRowView(item: item)
-                        }
-                        .buttonStyle(.plain)
-                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                        HStack(spacing: 0) {
                             Button {
                                 viewModel.toggleComplete(item)
                             } label: {
-                                Label(
-                                    item.isCompleted ? "未完了" : "完了",
-                                    systemImage: item.isCompleted ? "arrow.uturn.backward" : "checkmark.circle.fill"
-                                )
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .font(.title2)
+                                    .foregroundStyle(item.isCompleted ? .green : Color(.systemGray3))
+                                    .padding(.leading, 16)
+                                    .padding(.trailing, 4)
                             }
-                            .tint(item.isCompleted ? .orange : .green)
+                            .buttonStyle(.plain)
+
+                            Button { detailItem = item } label: {
+                                DeadlineRowView(item: item)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }

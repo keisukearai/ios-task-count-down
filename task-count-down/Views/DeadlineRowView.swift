@@ -12,7 +12,7 @@ struct DeadlineRowView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 6) {
-                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : item.category.icon)
+                    Image(systemName: item.category.icon)
                         .font(.caption)
                         .foregroundStyle(item.isCompleted ? Color(.systemGray3) : item.category.color)
                     Text(item.title)
