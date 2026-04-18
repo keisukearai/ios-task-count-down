@@ -96,6 +96,17 @@ struct DeadlineListView: View {
                             DeadlineRowView(item: item)
                         }
                         .buttonStyle(.plain)
+                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                            Button {
+                                viewModel.toggleComplete(item)
+                            } label: {
+                                Label(
+                                    item.isCompleted ? "未完了" : "完了",
+                                    systemImage: item.isCompleted ? "arrow.uturn.backward" : "checkmark.circle.fill"
+                                )
+                            }
+                            .tint(item.isCompleted ? .orange : .green)
+                        }
                     }
                 }
             }

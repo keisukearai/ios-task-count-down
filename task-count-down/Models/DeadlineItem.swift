@@ -14,6 +14,7 @@ struct DeadlineItem: Identifiable, Codable {
     var category: DeadlineCategory = .none
     var color: String = "blue"
     var note: String = ""
+    var isCompleted: Bool = false
 
     var daysRemaining: Int {
         let calendar = Calendar.current

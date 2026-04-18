@@ -43,6 +43,13 @@ class DeadlineViewModel {
         storage.save(items)
     }
 
+    func toggleComplete(_ item: DeadlineItem) {
+        guard let index = items.firstIndex(where: { $0.id == item.id }) else { return }
+        items[index].isCompleted.toggle()
+        sort()
+        storage.save(items)
+    }
+
     func canAdd(isPremium: Bool) -> Bool {
         isPremium || items.count < freeLimit
     }
@@ -55,9 +62,15 @@ class DeadlineViewModel {
     private func sort() {
         switch sortOrder {
         case .deadline:
-            items.sort { $0.daysRemaining < $1.daysRemaining }
+            items.sort {
+                if $0.isCompleted != $1.isCompleted { return !$0.isCompleted }
+                return $0.daysRemaining < $1.daysRemaining
+            }
         case .createdAt:
-            items.sort { $0.createdAt > $1.createdAt }
+            items.sort {
+                if $0.isCompleted != $1.isCompleted { return !$0.isCompleted }
+                return $0.createdAt > $1.createdAt
+            }
         }
     }
 }

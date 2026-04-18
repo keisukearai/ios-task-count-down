@@ -7,20 +7,21 @@ struct DeadlineRowView: View {
     var body: some View {
         HStack(spacing: 12) {
             RoundedRectangle(cornerRadius: 3)
-                .fill(urgencyColor)
+                .fill(item.isCompleted ? Color(.systemGray3) : urgencyColor)
                 .frame(width: 4)
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 6) {
-                    Image(systemName: item.category.icon)
+                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : item.category.icon)
                         .font(.caption)
-                        .foregroundStyle(item.category.color)
+                        .foregroundStyle(item.isCompleted ? Color(.systemGray3) : item.category.color)
                     Text(item.title)
                         .font(.headline)
                         .lineLimit(1)
+                        .strikethrough(item.isCompleted, color: .secondary)
+                        .foregroundStyle(item.isCompleted ? .secondary : .primary)
                 }
 
-                // 期限日
                 Label {
                     Text(sharedDateFormatter.string(from: item.targetDate))
                         .lineLimit(1)
@@ -34,23 +35,31 @@ struct DeadlineRowView: View {
 
             Spacer()
 
-            Text(countdownText)
-                .font(.title3)
-                .fontWeight(.bold)
-                .foregroundStyle(urgencyColor)
-                .multilineTextAlignment(.trailing)
-                .lineLimit(2)
-                .fixedSize(horizontal: true, vertical: false)
+            if item.isCompleted {
+                Text("完了")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(Color(.systemGray3))
+            } else {
+                Text(countdownText)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(urgencyColor)
+                    .multilineTextAlignment(.trailing)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: true, vertical: false)
+            }
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 14)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color(.systemBackground))
-                .shadow(color: .black.opacity(0.06), radius: 6, x: 0, y: 2)
+                .fill(item.isCompleted ? Color(.systemGray6) : Color(.systemBackground))
+                .shadow(color: .black.opacity(item.isCompleted ? 0.02 : 0.06), radius: 6, x: 0, y: 2)
         )
         .padding(.horizontal)
         .padding(.vertical, 4)
+        .opacity(item.isCompleted ? 0.7 : 1.0)
     }
 
     private var urgencyColor: Color {
