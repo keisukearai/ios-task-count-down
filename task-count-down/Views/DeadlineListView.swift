@@ -94,13 +94,15 @@ struct DeadlineListView: View {
                     ForEach(filteredItems) { item in
                         HStack(spacing: 0) {
                             Button {
-                                viewModel.toggleComplete(item)
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    viewModel.toggleComplete(item)
+                                }
                             } label: {
                                 Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .font(.title2)
+                                    .font(.body)
                                     .foregroundStyle(item.isCompleted ? .green : Color(.systemGray3))
-                                    .padding(.leading, 16)
-                                    .padding(.trailing, 4)
+                                    .padding(.leading, 12)
+                                    .padding(.trailing, 2)
                             }
                             .buttonStyle(.plain)
 
@@ -110,6 +112,7 @@ struct DeadlineListView: View {
                             .buttonStyle(.plain)
                         }
                     }
+                    .animation(.easeInOut(duration: 0.5), value: filteredItems.map(\.id))
                 }
             }
             .padding(.vertical, 8)
