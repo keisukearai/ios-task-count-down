@@ -43,6 +43,16 @@ class DeadlineViewModel {
         storage.save(items)
     }
 
+    func duplicate(_ item: DeadlineItem) {
+        var copy = item
+        copy.id = UUID()
+        copy.createdAt = Date()
+        copy.isCompleted = false
+        items.append(copy)
+        sort()
+        storage.save(items)
+    }
+
     func toggleComplete(_ item: DeadlineItem) {
         guard let index = items.firstIndex(where: { $0.id == item.id }) else { return }
         items[index].isCompleted.toggle()

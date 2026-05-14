@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DeadlineListView: View {
     @Environment(DeadlineViewModel.self) private var viewModel
+    @Environment(NotificationService.self) private var notificationService
     @Environment(PurchaseService.self) private var purchaseService
     @Environment(LanguageManager.self) private var lm
     @State private var showingAdd = false
@@ -9,6 +10,7 @@ struct DeadlineListView: View {
     @State private var showingLanguage = false
     @State private var detailItem: DeadlineItem?
     @State private var selectedCategory: DeadlineCategory? = nil
+    @State private var itemToDelete: DeadlineItem?
 
     private var filteredItems: [DeadlineItem] {
         guard let cat = selectedCategory else { return viewModel.items }
@@ -82,40 +84,79 @@ struct DeadlineListView: View {
     }
 
     private var listContent: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                if !purchaseService.isPremium {
-                    freeUsageBanner
-                }
-                categoryFilter
-                if filteredItems.isEmpty {
-                    emptyFilterView
-                } else {
+        VStack(spacing: 0) {
+            if !purchaseService.isPremium {
+                freeUsageBanner
+            }
+            categoryFilter
+            if filteredItems.isEmpty {
+                Spacer()
+                emptyFilterView
+                Spacer()
+            } else {
+                List {
                     ForEach(filteredItems) { item in
-                        HStack(spacing: 0) {
+                        Button { detailItem = item } label: {
+                            DeadlineRowView(item: item)
+                        }
+                        .buttonStyle(.plain)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button(role: .destructive) {
+                                itemToDelete = item
+                            } label: {
+                                Label(lm.l("delete_button"), systemImage: "trash")
+                            }
+                            Button {
+                                viewModel.duplicate(item)
+                            } label: {
+                                Label(lm.l("copy_button"), systemImage: "doc.on.doc")
+                            }
+                            .tint(.blue)
                             Button {
                                 withAnimation(.easeInOut(duration: 0.5)) {
                                     viewModel.toggleComplete(item)
                                 }
+                                if item.isCompleted {
+                                    var reactivated = item
+                                    reactivated.isCompleted = false
+                                    notificationService.schedule(for: reactivated)
+                                } else {
+                                    notificationService.cancel(for: item)
+                                }
                             } label: {
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .font(.body)
-                                    .foregroundStyle(item.isCompleted ? .green : Color(.systemGray3))
-                                    .padding(.leading, 8)
-                                    .padding(.trailing, 0)
+                                Label(
+                                    item.isCompleted ? lm.l("uncomplete_button") : lm.l("done_button"),
+                                    systemImage: item.isCompleted ? "arrow.uturn.backward" : "checkmark"
+                                )
                             }
-                            .buttonStyle(.plain)
-
-                            Button { detailItem = item } label: {
-                                DeadlineRowView(item: item)
-                            }
-                            .buttonStyle(.plain)
+                            .tint(item.isCompleted ? .orange : .green)
                         }
                     }
-                    .animation(.easeInOut(duration: 0.5), value: filteredItems.map(\.id))
+                }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .animation(.easeInOut(duration: 0.5), value: filteredItems.map(\.id))
+                .padding(.vertical, 4)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .alert(lm.l("delete_confirm_title"), isPresented: Binding(
+            get: { itemToDelete != nil },
+            set: { if !$0 { itemToDelete = nil } }
+        )) {
+            Button(lm.l("delete_button"), role: .destructive) {
+                if let item = itemToDelete {
+                    notificationService.cancel(for: item)
+                    viewModel.delete(item)
+                    itemToDelete = nil
                 }
             }
-            .padding(.vertical, 8)
+            Button(lm.l("cancel_button"), role: .cancel) {}
+        } message: {
+            Text(lm.l("delete_confirm_message"))
         }
     }
 

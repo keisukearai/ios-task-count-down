@@ -23,8 +23,13 @@ struct DeadlineRowView: View {
                 }
 
                 Label {
-                    Text(sharedDateFormatter.string(from: item.targetDate))
-                        .lineLimit(1)
+                    HStack(spacing: 4) {
+                        Text(sharedDateFormatter.string(from: item.targetDate))
+                        if item.hasTime {
+                            Text(sharedTimeFormatter.string(from: item.targetDate))
+                        }
+                    }
+                    .lineLimit(1)
                 } icon: {
                     Image(systemName: "calendar")
                 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AddEditDeadlineView: View {
     @Environment(DeadlineViewModel.self) private var viewModel
+    @Environment(NotificationService.self) private var notificationService
     @Environment(LanguageManager.self) private var lm
     @Environment(\.dismiss) private var dismiss
     @Environment(\.horizontalSizeClass) private var sizeClass
@@ -11,8 +12,10 @@ struct AddEditDeadlineView: View {
     var onSave: (() -> Void)? = nil
 
     @State private var title: String = ""
-    @State private var targetDate: Date = Calendar.current.startOfDay(for: Date().addingTimeInterval(86400))
+    @State private var targetDate: Date = Date().addingTimeInterval(86400)
+    @State private var hasTime: Bool = false
     @State private var category: DeadlineCategory = .none
+    @State private var notificationEnabled: Bool = true
     @State private var showingDeleteConfirm = false
 
     private var isEditing: Bool { item != nil }
@@ -55,6 +58,22 @@ struct AddEditDeadlineView: View {
                         )
                         .datePickerStyle(.graphical)
                     }
+
+                    Toggle(lm.l("time_toggle"), isOn: $hasTime)
+
+                    if hasTime {
+                        DatePicker(
+                            lm.l("time_toggle"),
+                            selection: $targetDate,
+                            displayedComponents: .hourAndMinute
+                        )
+                        .datePickerStyle(.compact)
+                        .labelsHidden()
+                    }
+                }
+
+                Section(lm.l("section_notification")) {
+                    Toggle(lm.l("notification_task_toggle"), isOn: $notificationEnabled)
                 }
 
                 if isEditing {
@@ -88,7 +107,10 @@ struct AddEditDeadlineView: View {
                 titleVisibility: .visible
             ) {
                 Button(lm.l("delete_button"), role: .destructive) {
-                    if let item { viewModel.delete(item) }
+                    if let item {
+                        notificationService.cancel(for: item)
+                        viewModel.delete(item)
+                    }
                     dismiss()
                 }
                 Button(lm.l("cancel_button"), role: .cancel) {}
@@ -99,9 +121,11 @@ struct AddEditDeadlineView: View {
         .presentationDetents([.large])
         .onAppear {
             if let item {
-                title      = item.title
-                targetDate = item.targetDate
-                category   = item.category
+                title               = item.title
+                targetDate          = item.targetDate
+                hasTime             = item.hasTime
+                category            = item.category
+                notificationEnabled = item.notificationEnabled
             } else {
                 category = initialCategory ?? .none
             }
@@ -112,15 +136,23 @@ struct AddEditDeadlineView: View {
         let trimmed = title.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty else { return }
 
+        let date = hasTime ? targetDate : Calendar.current.startOfDay(for: targetDate)
+
         if var existing = item {
-            existing.title      = trimmed
-            existing.targetDate = targetDate
-            existing.category   = category
+            existing.title               = trimmed
+            existing.targetDate          = date
+            existing.hasTime             = hasTime
+            existing.category            = category
+            existing.notificationEnabled = notificationEnabled
             viewModel.update(existing)
+            notificationService.schedule(for: existing)
         } else {
-            var newItem = DeadlineItem(title: trimmed, targetDate: targetDate)
-            newItem.category = category
+            var newItem = DeadlineItem(title: trimmed, targetDate: date)
+            newItem.hasTime             = hasTime
+            newItem.category            = category
+            newItem.notificationEnabled = notificationEnabled
             viewModel.add(newItem)
+            notificationService.schedule(for: newItem)
         }
         onSave?()
         dismiss()

@@ -6,6 +6,12 @@ let sharedDateFormatter: DateFormatter = {
     return f
 }()
 
+let sharedTimeFormatter: DateFormatter = {
+    let f = DateFormatter()
+    f.dateFormat = "HH:mm"
+    return f
+}()
+
 struct DeadlineItem: Identifiable, Codable {
     var id: UUID = UUID()
     var title: String
@@ -15,6 +21,27 @@ struct DeadlineItem: Identifiable, Codable {
     var color: String = "blue"
     var note: String = ""
     var isCompleted: Bool = false
+    var hasTime: Bool = false
+    var notificationEnabled: Bool = true
+
+    init(title: String, targetDate: Date) {
+        self.title = title
+        self.targetDate = targetDate
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id                  = try c.decodeIfPresent(UUID.self,             forKey: .id)                  ?? UUID()
+        title               = try c.decode(String.self,                    forKey: .title)
+        targetDate          = try c.decode(Date.self,                      forKey: .targetDate)
+        createdAt           = try c.decodeIfPresent(Date.self,             forKey: .createdAt)           ?? Date()
+        category            = try c.decodeIfPresent(DeadlineCategory.self, forKey: .category)           ?? .none
+        color               = try c.decodeIfPresent(String.self,           forKey: .color)               ?? "blue"
+        note                = try c.decodeIfPresent(String.self,           forKey: .note)                ?? ""
+        isCompleted         = try c.decodeIfPresent(Bool.self,             forKey: .isCompleted)         ?? false
+        hasTime             = try c.decodeIfPresent(Bool.self,             forKey: .hasTime)             ?? false
+        notificationEnabled = try c.decodeIfPresent(Bool.self,             forKey: .notificationEnabled) ?? true
+    }
 
     var daysRemaining: Int {
         let calendar = Calendar.current

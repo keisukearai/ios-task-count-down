@@ -28,8 +28,16 @@ struct DeadlineDetailView: View {
                         LabeledContent(lm.l("date_label")) {
                             Text(sharedDateFormatter.string(from: item.targetDate))
                         }
+                        if item.hasTime {
+                            LabeledContent(lm.l("time_label")) {
+                                Text(sharedTimeFormatter.string(from: item.targetDate))
+                            }
+                        }
                         LabeledContent(lm.l("created_at_label")) {
                             Text(sharedDateFormatter.string(from: item.createdAt))
+                        }
+                        LabeledContent(lm.l("created_at_time_label")) {
+                            Text(sharedTimeFormatter.string(from: item.createdAt))
                         }
                     }
 
