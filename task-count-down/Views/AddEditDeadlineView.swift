@@ -16,6 +16,7 @@ struct AddEditDeadlineView: View {
     @State private var hasTime: Bool = false
     @State private var category: DeadlineCategory = .none
     @State private var notificationEnabled: Bool = true
+    @State private var note: String = ""
     @State private var showingDeleteConfirm = false
 
     private var isEditing: Bool { item != nil }
@@ -43,33 +44,49 @@ struct AddEditDeadlineView: View {
                 }
 
                 Section(lm.l("section_date")) {
-                    if sizeClass == .regular {
-                        DatePicker(
-                            lm.l("date_label"),
-                            selection: $targetDate,
-                            displayedComponents: .date
-                        )
-                        .datePickerStyle(.compact)
+                    if item?.isCompleted == true {
+                        LabeledContent(lm.l("date_label")) {
+                            Text(sharedDateFormatter.string(from: targetDate))
+                        }
+                        if hasTime {
+                            LabeledContent(lm.l("time_label")) {
+                                Text(sharedTimeFormatter.string(from: targetDate))
+                            }
+                        }
                     } else {
-                        DatePicker(
-                            lm.l("date_label"),
-                            selection: $targetDate,
-                            displayedComponents: .date
-                        )
-                        .datePickerStyle(.graphical)
-                    }
+                        if sizeClass == .regular {
+                            DatePicker(
+                                lm.l("date_label"),
+                                selection: $targetDate,
+                                displayedComponents: .date
+                            )
+                            .datePickerStyle(.compact)
+                        } else {
+                            DatePicker(
+                                lm.l("date_label"),
+                                selection: $targetDate,
+                                displayedComponents: .date
+                            )
+                            .datePickerStyle(.graphical)
+                        }
 
-                    Toggle(lm.l("time_toggle"), isOn: $hasTime)
+                        Toggle(lm.l("time_toggle"), isOn: $hasTime)
 
-                    if hasTime {
-                        DatePicker(
-                            lm.l("time_toggle"),
-                            selection: $targetDate,
-                            displayedComponents: .hourAndMinute
-                        )
-                        .datePickerStyle(.compact)
-                        .labelsHidden()
+                        if hasTime {
+                            DatePicker(
+                                lm.l("time_toggle"),
+                                selection: $targetDate,
+                                displayedComponents: .hourAndMinute
+                            )
+                            .datePickerStyle(.compact)
+                            .labelsHidden()
+                        }
                     }
+                }
+
+                Section(lm.l("section_note")) {
+                    TextField(lm.l("note_placeholder"), text: $note, axis: .vertical)
+                        .lineLimit(4...)
                 }
 
                 Section(lm.l("section_notification")) {
@@ -126,6 +143,7 @@ struct AddEditDeadlineView: View {
                 hasTime             = item.hasTime
                 category            = item.category
                 notificationEnabled = item.notificationEnabled
+                note                = item.note
             } else {
                 category = initialCategory ?? .none
             }
@@ -144,6 +162,7 @@ struct AddEditDeadlineView: View {
             existing.hasTime             = hasTime
             existing.category            = category
             existing.notificationEnabled = notificationEnabled
+            existing.note                = note
             viewModel.update(existing)
             notificationService.schedule(for: existing)
         } else {
@@ -151,6 +170,7 @@ struct AddEditDeadlineView: View {
             newItem.hasTime             = hasTime
             newItem.category            = category
             newItem.notificationEnabled = notificationEnabled
+            newItem.note                = note
             viewModel.add(newItem)
             notificationService.schedule(for: newItem)
         }

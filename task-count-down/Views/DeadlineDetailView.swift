@@ -42,11 +42,16 @@ struct DeadlineDetailView: View {
                     }
 
                     Section {
-                        LabeledContent(lm.l("countdown_label")) {
+                        LabeledContent(item.isCompleted ? lm.l("countdown_elapsed_label") : lm.l("countdown_label")) {
                             Text(countdownText(for: item))
                                 .fontWeight(.bold)
                                 .foregroundStyle(urgencyColor(for: item))
                         }
+                    }
+
+                    Section(lm.l("section_note")) {
+                        Text(item.note.isEmpty ? lm.l("note_placeholder") : item.note)
+                            .foregroundStyle(item.note.isEmpty ? .tertiary : .secondary)
                     }
                 }
                 .navigationTitle(item.title)
@@ -70,6 +75,7 @@ struct DeadlineDetailView: View {
     }
 
     private func urgencyColor(for item: DeadlineItem) -> Color {
+        if item.isCompleted { return .teal }
         switch item.urgency {
         case .overdue: return .red
         case .today:   return .blue
@@ -80,6 +86,14 @@ struct DeadlineDetailView: View {
 
     private func countdownText(for item: DeadlineItem) -> String {
         let days = item.daysRemaining
+        if item.isCompleted && days < 0 {
+            let elapsed = abs(days)
+            if elapsed == 1 {
+                return lm.lf("countdown_elapsed_singular", elapsed)
+            } else {
+                return lm.lf("countdown_elapsed_plural", elapsed)
+            }
+        }
         if days == 1 {
             return lm.lf("countdown_future_singular", days)
         } else if days > 1 {
