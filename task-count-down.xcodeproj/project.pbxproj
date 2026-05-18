@@ -13,6 +13,8 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C657E4542F81BF27003B87DA /* task-count-down */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "task-count-down";
 			sourceTree = "<group>";
 		};
@@ -64,8 +66,6 @@
 				C657E4542F81BF27003B87DA /* task-count-down */,
 			);
 			name = "task-count-down";
-			packageProductDependencies = (
-			);
 			productName = "task-count-down";
 			productReference = C657E4522F81BF27003B87DA /* task-count-down.app */;
 			productType = "com.apple.product-type.application";
@@ -254,10 +254,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = HFZSU3MJLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TaskCountDown;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -267,7 +268,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				INFOPLIST_KEY_CFBundleDisplayName = TaskCountDown;
 				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keisukearai.task-count-down";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,10 +287,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = HFZSU3MJLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TaskCountDown;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -300,7 +301,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				INFOPLIST_KEY_CFBundleDisplayName = TaskCountDown;
 				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keisukearai.task-count-down";
 				PRODUCT_NAME = "$(TARGET_NAME)";

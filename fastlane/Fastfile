@@ -169,7 +169,10 @@ platform :ios do
         }
       }
     }.to_json)
+    UI.message("reviewSubmissionItems POST: #{code} - #{result}")
     UI.user_error!("Failed to add item: #{result}") unless [201, 409].include?(code)
+
+    sleep 3
 
     code, result = client[:patch].call("/v1/reviewSubmissions/#{submission_id}", {
       data: {
@@ -332,7 +335,7 @@ platform :ios do
       app_identifier: APP_BUNDLE_ID,
       submit_for_review: false,
       skip_screenshots: true,
-      skip_metadata: true,
+      skip_metadata: false,
       run_precheck_before_submit: false,
       force: true,
       submission_information: {
@@ -340,6 +343,24 @@ platform :ios do
         content_rights_contains_third_party_content: false,
       },
     )
+
+    # ビルドをバージョンに関連付け・暗号化コンプライアンスを設定
+    builds_resp = client[:get].call("/v1/builds?filter[app]=#{app_id}&filter[processingState]=VALID&sort=-uploadedDate&limit=1")
+    build_id = builds_resp.dig("data", 0, "id")
+    if build_id
+      versions_resp = client[:get].call("/v1/apps/#{app_id}/appStoreVersions?filter[appStoreState]=PREPARE_FOR_SUBMISSION")
+      version_id = versions_resp.dig("data", 0, "id")
+      if version_id
+        client[:patch].call("/v1/appStoreVersions/#{version_id}", {
+          data: { type: "appStoreVersions", id: version_id,
+                  relationships: { build: { data: { type: "builds", id: build_id } } } }
+        }.to_json)
+      end
+      client[:patch].call("/v1/builds/#{build_id}", {
+        data: { type: "builds", id: build_id, attributes: { usesNonExemptEncryption: false } }
+      }.to_json)
+      UI.success("Build #{build_id} associated and encryption set")
+    end
 
     ensure_age_rating(client, app_id)
     submit_version(client, app_id)
