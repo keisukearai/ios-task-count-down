@@ -1,0 +1,2 @@
+- Added memo field to tasks: write notes and view them on the detail screen
+- Completed tasks no longer show the date picker in the edit screen

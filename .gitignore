@@ -22,3 +22,20 @@ Pods/
 
 # Personal notes (not for repo)
 TODO.md
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/.env.local
+
+# Secrets
+*.p8
+*.p12
+*.mobileprovision
+.env.local
+
+# Ruby
+.bundle/
+vendor/bundle/

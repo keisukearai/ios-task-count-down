@@ -1,0 +1,25 @@
+TaskCountDown helps you stay on top of deadlines by showing exactly how many days remain.
+
+Add your tasks and deadlines, and the app counts down the days automatically — so you always know what's coming up and what needs your attention now.
+
+[Features]
+
+■ Deadline Countdown
+See the number of days remaining for each task at a glance. Overdue, today, soon, and future tasks are color-coded for quick scanning.
+
+■ Categories
+Organize tasks by category — Work, Personal, Study, Health, and more — each with its own icon and color.
+
+■ Memo
+Attach a note to any task to keep relevant details close at hand.
+
+■ Push Notifications
+Get reminded before your deadline arrives. Set notifications per task or globally.
+
+■ Completion Tracking
+Mark tasks as done and see how many days elapsed since the deadline.
+
+■ Multilingual
+Supports English, Japanese, Thai, Vietnamese, and Chinese (Simplified).
+
+No ads. No unnecessary features. Just your deadlines, clearly counted down.

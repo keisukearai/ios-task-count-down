@@ -1,0 +1,3 @@
+app_identifier "com.keisukearai.task-count-down"
+apple_id ENV["APPLE_ID"]
+team_id ENV["TEAM_ID"]
